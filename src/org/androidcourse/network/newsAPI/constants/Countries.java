@@ -2,47 +2,47 @@ package org.androidcourse.network.newsAPI.constants;
 
 public enum Countries {
     ae,
-    ar, //Argentina
-    at, //Austria
-    au, //Australia
-    be, //Belgium
+    ar,     //Argentina
+    at,     //Austria
+    au,     //Australia
+    be,     //Belgium
     bg,
     br,
-    ca, //Canada
-    ch, //China
+    ca,     //Canada
+    ch,     //China
     cn,
     co,
     cu,
-    cz, //Czech Republic
-    de, //Germany
-    eg, //Egypt
-    fr, //France
-    gb, //United Kingdom
-    gr, //Greece
-    hk, //Hong Kong
-    hu, //Hungary
+    cz,     //Czech Republic
+    de,     //Germany
+    eg,     //Egypt
+    fr,     //France
+    gb,     //United Kingdom
+    gr,     //Greece
+    hk,     //Hong Kong
+    hu,     //Hungary
     id,
-    ie, //Ireland
+    ie,     //Ireland
     il,
     in,
-    it, //Italy
-    jp, //Japan
-    kr, //South Korea
+    it,     //Italy
+    jp,     //Japan
+    kr,     //South Korea
     lt,
     lv,
     ma,
-    mx, //Mexico
+    mx,     //Mexico
     my,
     ng,
-    nl, //Netherlands
-    no, //Norway
-    nz, //New Zealand
+    nl,     //Netherlands
+    no,     //Norway
+    nz,     //New Zealand
     ph,
     pl,
-    pt, //Portugal
+    pt,     //Portugal
     ro,
     rs,
-    ru, //Russia
+    ru,     //Russia
     sa,
     se,
     sg,
@@ -52,7 +52,7 @@ public enum Countries {
     tr,
     tw,
     ua,
-    us, //United States
+    us,     //United States
     ve,
     za
 }
