@@ -1,89 +1,129 @@
 package org.androidcourse.data;
 
+import org.androidcourse.network.newsAPI.constants.Categories;
+import org.androidcourse.network.newsAPI.constants.Countries;
+import org.androidcourse.network.newsAPI.constants.Languages;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Instant;
 
-public class SourceDTO {
-    private String sid;
-    private String sname;
-    private String author;
-    private String title;
-    private String descr;
-    private URL url;
-    private URL urlToImg;
-    private Instant pubAt;
-    private String content;
+public final class SourceDTO {
+    private final String sid;
+    private final String sname;
+    private final String author;
+    private final String title;
+    private final String descr;
+    private final URL url;
+    private final URL urlToImg;
+    private final Instant pubAt;
+    private final String content;
+    private final Categories category;
+    private final Languages language;
+    private final Countries country;
 
-    SourceDTO() {}
+    public static class Builder {
+        private String sid = null;
+        private String sname = null;
+        private String author = null;
+        private String title = null;
+        private String descr = null;
+        private URL url = null;
+        private URL urlToImg = null;
+        private Instant pubAt = null;
+        private String content = null;
+        private Categories category = null;
+        private Languages language = null;
+        private Countries country = null;
 
-//    SourceDTO(String sid, String sname, String author, String title, String descr,
-//              URL url, URL urlToImg, Instant pubAt, String content) {
-//        this.sid = sid;
-//        this.sname = sname;
-//        this.author = author;
-//        this.title = title;
-//        this.descr = descr;
-//        this.url = url;
-//        this.urlToImg = urlToImg;
-//        this.pubAt = pubAt;
-//        this.content = content;
-//    }
+        public Builder sid(String val) {
+            sid = val;
+            return this;
+        }
 
-    void setSid(String sid) {
-        this.sid = sid;
-    }
+        public Builder sname(String val) {
+            sname = val;
+            return this;
+        }
 
-    void setSname(String sname) {
-        this.sname = sname;
-    }
+        public Builder author(String val) {
+            author = val;
+            return this;
+        }
 
-    void setAuthor(String author) {
-        this.author = author;
-    }
+        public Builder title(String val) {
+            title = val;
+            return this;
+        }
 
-    void setTitle(String title) {
-        this.title = title;
-    }
+        public Builder descr(String val) {
+            descr = val;
+            return this;
+        }
 
-    void setDescr(String descr) {
-        this.descr = descr;
-    }
+        public Builder url(String val) {
+            try {
+                url = new URL(val);
+            } catch (MalformedURLException e) {
+                url = null;
+                System.err.println(e.getMessage());
+            }
+            return this;
+        }
 
-    void setUrl(String url) {
-        try {
-            this.url = new URL(url);
-        } catch (MalformedURLException e) {
-            System.out.println(e.getMessage());
+        public Builder urlToImg(String val) {
+            try {
+                urlToImg = new URL(val);
+            } catch (MalformedURLException e) {
+                urlToImg = null;
+                System.err.println(e.getMessage());
+            }
+            return this;
+        }
+
+        public Builder pubAt(String val) {
+            pubAt = Instant.parse(val);
+            return this;
+        }
+
+        public Builder content(String val) {
+            content = val;
+            return this;
+        }
+
+        public Builder category(String val) {
+            category = Categories.valueOf(val);
+            return this;
+        }
+
+        public Builder language(String val) {
+            language = Languages.valueOf(val);
+            return this;
+        }
+
+        public Builder country(String val) {
+            country = Countries.valueOf(val);
+            return this;
+        }
+
+        public SourceDTO build() {
+            return new SourceDTO(this);
         }
     }
 
-    void setUrl(URL url) {
-        this.url = url;
-    }
-
-    void setUrlToImg(String urlToImg) {
-        try {
-            this.urlToImg = new URL(urlToImg);
-        } catch (MalformedURLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    void setUrlToImg(URL urlToImg) {
-        this.urlToImg = urlToImg;
-    }
-
-    void setPubAt(String pubAt) {
-        this.pubAt = Instant.parse(pubAt);
-    }
-
-    void setPubAt(Instant pubAt) {
-        this.pubAt = pubAt;
-    }
-
-    void setContent(String content) {
-        this.content = content;
+    SourceDTO(Builder builder) {
+        sid = builder.sid;
+        sname = builder.sname;
+        author = builder.author;
+        title = builder.title;
+        descr = builder.descr;
+        url = builder.url;
+        urlToImg = builder.urlToImg;
+        pubAt = builder.pubAt;
+        content = builder.content;
+        category = builder.category;
+        language = builder.language;
+        country = builder.country;
     }
 
     String getSid() {
@@ -120,5 +160,17 @@ public class SourceDTO {
 
     String getContent() {
         return content;
+    }
+
+    Categories getCategory() {
+        return category;
+    }
+
+    Languages getLanguage() {
+        return language;
+    }
+
+    Countries getCountry() {
+        return country;
     }
 }
