@@ -9,6 +9,7 @@ import java.net.URL;
 import java.time.Instant;
 
 public final class SourceDTO {
+
     private final String sid;
     private final String sname;
     private final String author;
@@ -23,6 +24,7 @@ public final class SourceDTO {
     private final Countries country;
 
     public static class Builder {
+
         private String sid = null;
         private String sname = null;
         private String author = null;

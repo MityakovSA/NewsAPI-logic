@@ -54,5 +54,6 @@ public enum Countries {
     ua,
     us,     //United States
     ve,
-    za
+    za,
+    zh      //China (for some sources)
 }
